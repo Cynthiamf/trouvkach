@@ -11,9 +11,10 @@ import * as React from "react";
 const List = () => (
     <div>
         <ul>
-            <li>{"Bank Name"}</li>
-            <li>{"Bank location"}</li>
-            <li>{"Distance between user and Bank"}</li>
+            <li>{"Bank's ID"}</li>
+            <li>{"Bank's location (latitude longitude)"}</li>
+            <li>{"Bank's address (Distance)"}</li>
+            <li>{"Bank's name"}</li>
         </ul>
     </div>
 );

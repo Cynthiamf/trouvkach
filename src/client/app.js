@@ -8,6 +8,7 @@
 
 import * as React from "react";
 import ReactDOM from "react-dom";
+import "./style.css";
 
 import Header from "./components/header";
 import Map from "./components/map";

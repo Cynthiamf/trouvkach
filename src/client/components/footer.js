@@ -11,7 +11,9 @@ import * as React from "react";
 const Footer = () => (
     <div>
         <span>
-            {"Developped by Cynthia Martiny, Florent Bruyers and Lionel Franco"}
+            {
+                "Developped by Cynthia Martiny, Florent Bruyers and Lionel Franco \u00A9"
+            }
         </span>
     </div>
 );
