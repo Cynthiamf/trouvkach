@@ -12,7 +12,7 @@ import {Map, TileLayer, Marker, Popup} from "react-leaflet";
 const Maps = () => (
     <div>
         <Map
-            center={[50.6412, 5.5718]}
+            center={[50.633277, 5.586462]}
             zoom={1}
             style={{height: "400px", width: "800px"}}>
             <TileLayer
@@ -21,8 +21,8 @@ const Maps = () => (
                 }
                 url={"https://{s}.tile.osm.org/{z}/{x}/{y}.png"}
             />
-            <Marker position={[50.6412, 5.5718]}>
-                <Popup>{"A pretty CSS3 popup. Easily customizable."}</Popup>
+            <Marker position={[50.633277, 5.586462]}>
+                <Popup>{"Le Pôle Image de Liège"}</Popup>
             </Marker>
         </Map>
     </div>
