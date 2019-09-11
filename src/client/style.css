@@ -27,6 +27,7 @@ body {
 .LeftBlock {
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 400px;
     width: 800px;
     border: 1px solid black;

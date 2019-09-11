@@ -7,11 +7,25 @@
  */
 
 import * as React from "react";
+import {Map, TileLayer, Marker, Popup} from "react-leaflet";
 
-const Map = () => (
+const Maps = () => (
     <div>
-        <span>{"Map goes here"}</span>
+        <Map
+            center={[50.6412, 5.5718]}
+            zoom={1}
+            style={{height: "400px", width: "800px"}}>
+            <TileLayer
+                attribution={
+                    '<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                }
+                url={"https://{s}.tile.osm.org/{z}/{x}/{y}.png"}
+            />
+            <Marker position={[50.6412, 5.5718]}>
+                <Popup>{"A pretty CSS3 popup. Easily customizable."}</Popup>
+            </Marker>
+        </Map>
     </div>
 );
 
-export default Map;
+export default Maps;

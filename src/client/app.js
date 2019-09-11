@@ -11,7 +11,7 @@ import ReactDOM from "react-dom";
 import "./style.css";
 
 import Header from "./components/header";
-import Map from "./components/map";
+import Maps from "./components/map";
 import Search from "./components/search";
 import List from "./components/list";
 import Footer from "./components/footer";
@@ -23,7 +23,7 @@ const App = () => (
         </div>
         <div className={"Content"}>
             <div className={"LeftBlock"}>
-                <Map />
+                <Maps />
             </div>
             <div className={"RightBlock"}>
                 <div className={"Search"}>
