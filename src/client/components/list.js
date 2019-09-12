@@ -7,11 +7,16 @@
  */
 
 import * as React from "react";
+import Bank from "../../../_dev/banks.json";
 
 const List = () => (
     <div>
         <ul>
-            <li>{"Bank's ID"}</li>
+            <li>
+                {Bank.map(Bankdetail => (
+                    <span>{Bankdetail.name}</span>
+                ))}
+            </li>
             <li>{"Bank's location (latitude longitude)"}</li>
             <li>{"Bank's address (Distance)"}</li>
             <li>{"Bank's name"}</li>
