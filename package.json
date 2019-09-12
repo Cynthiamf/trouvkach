@@ -50,6 +50,7 @@
     "express": "^4.17.1",
     "heroku": "^7.29.0",
     "heroku-cli": "^7.0.9",
+    "mongodb": "^3.3.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
