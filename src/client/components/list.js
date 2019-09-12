@@ -8,18 +8,56 @@
 
 import * as React from "react";
 import Bank from "../../../_dev/banks.json";
+import Terminal from "../../../_dev/terminals.json";
+
+export const bankName = Bank.map((bankDetail, index) => {
+    if (index < 1) {
+        return <p>{bankDetail.name}</p>;
+    }
+    return null;
+});
+
+export const terminalAddress = Terminal.map((terminalDetail, index) => {
+    if (index < 1) {
+        return <p>{terminalDetail.address}</p>;
+    }
+    return null;
+});
+
+export const terminalLatitude = Terminal.map((terminalDetail, index) => {
+    if (index < 1) {
+        return <p>{terminalDetail.latitude}</p>;
+    }
+    return null;
+});
+
+export const terminalLongitude = Terminal.map((terminalDetail, index) => {
+    if (index < 1) {
+        return <p>{terminalDetail.longitude}</p>;
+    }
+    return null;
+});
+
+export const bankCountry = Bank.map((bankDetail, index) => {
+    if (index < 1) {
+        return <p>{bankDetail.country}</p>;
+    }
+    return null;
+});
+
+export const bankUrl = Bank.map((bankDetail, index) => {
+    if (index < 1) {
+        return <p>{bankDetail.url}</p>;
+    }
+    return null;
+});
 
 const List = () => (
     <div>
         <ul>
-            <li>
-                {Bank.map(Bankdetail => (
-                    <span>{Bankdetail.name}</span>
-                ))}
-            </li>
-            <li>{"Bank's location (latitude longitude)"}</li>
-            <li>{"Bank's address (Distance)"}</li>
-            <li>{"Bank's name"}</li>
+            <li>{bankName}</li>
+            <li>{terminalAddress}</li>
+            <li>{bankUrl}</li>
         </ul>
     </div>
 );

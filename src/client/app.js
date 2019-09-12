@@ -31,7 +31,6 @@ const App = () => (
                 </div>
                 <div className={"Lists"}>
                     <List />
-                    <List />
                 </div>
             </div>
         </div>
