@@ -7,57 +7,13 @@
  */
 
 import * as React from "react";
-import Bank from "../../../_dev/banks.json";
-import Terminal from "../../../_dev/terminals.json";
 
-export const bankName = Bank.map((bankDetail, index) => {
-    if (index >= 0) {
-        return <p>{bankDetail.name}</p>;
-    }
-    return null;
-});
+const mongo = require("mongodb").MongoClient;
+const url = "mongodb://dev:dev@mongo:27017/admin";
 
-export const terminalAddress = Terminal.map((terminalDetail, index) => {
-    if (index >= 0) {
-        return <p>{terminalDetail.address}</p>;
-    }
-    return null;
-});
+console.log(mongo);
+console.log(url);
 
-export const bankUrl = Bank.map((bankDetail, index) => {
-    if (index >= 0) {
-        return <p>{bankDetail.url}</p>;
-    }
-    return null;
-});
-
-const terminalId = Terminal.map((terminalDetail, index) => {
-    if (index >= 0 && terminalDetail.bank) {
-        return <p>{terminalDetail.bank.$oid}</p>;
-    }
-    return null;
-});
-
-const bankId = Bank.map((bankDetail, index) => {
-    if (index >= 0) {
-        return <p>{bankDetail._id.$oid}</p>;
-    }
-    return null;
-});
-
-const List = () => {
-    if (bankId === terminalId) {
-        return (
-            <div>
-                <ul>
-                    <li>{bankName}</li>
-                    <li>{terminalAddress}</li>
-                    <li>{bankUrl}</li>
-                </ul>
-            </div>
-        );
-    }
-    return "Something went wrong !";
-};
+const List = () => <p>{"Something went wrong !"}</p>;
 
 export default List;
