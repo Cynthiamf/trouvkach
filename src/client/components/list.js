@@ -8,10 +8,8 @@
 
 import * as React from "react";
 
-const mongo = require("mongodb").MongoClient;
 const url = "mongodb://dev:dev@mongo:27017/admin";
 
-console.log(mongo);
 console.log(url);
 
 const List = () => <p>{"Something went wrong !"}</p>;

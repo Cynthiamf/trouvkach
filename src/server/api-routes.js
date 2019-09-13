@@ -21,19 +21,15 @@ mongo.connect(
         });
 
         router.get("/banks", (req, res) => {
-            res.send(
-                banks.find().toArray((_err, items) => {
-                    console.log(items);
-                }),
-            );
+            banks.find().toArray((_err, items) => {
+                res.json(items);
+            });
         });
 
         router.get("/terminals", (req, res) => {
-            res.send(
-                terminals.find().toArray((_err2, items) => {
-                    console.log(items);
-                }),
-            );
+            terminals.find().toArray((_err2, items) => {
+                res.json(items);
+            });
         });
     },
 );
