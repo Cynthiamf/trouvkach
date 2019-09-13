@@ -8,20 +8,6 @@
 
 import * as React from "react";
 import {Map, TileLayer, Marker, Popup} from "react-leaflet";
-import Terminals from "../../../_dev/terminals.json";
-import {
-    bankCountry,
-    terminalAddress,
-    bankName,
-    terminalLatitude,
-    terminalLongitude,
-} from "../components/list";
-
-const latitude = Terminals.map(element => element.latitude);
-const longitude = Terminals.map(element => element.longitude);
-
-console.log(latitude);
-console.log(longitude);
 
 const Maps = () => (
     <div>
@@ -35,18 +21,8 @@ const Maps = () => (
                 }
                 url={"https://{s}.tile.osm.org/{z}/{x}/{y}.png"}
             />
-            <Marker
-                position={[
-                    terminalLatitude[0].props.children,
-                    terminalLongitude[0].props.children,
-                ]}>
-                <Popup>
-                    {bankName[0].props.children}
-                    <br />
-                    {terminalAddress[0].props.children}
-                    <br />
-                    {bankCountry[0].props.children}
-                </Popup>
+            <Marker position={[50.633277, 5.586462]}>
+                <Popup>{"Pôle image de Liège"}</Popup>
             </Marker>
         </Map>
     </div>

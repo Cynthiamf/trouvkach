@@ -24,27 +24,6 @@ export const terminalAddress = Terminal.map((terminalDetail, index) => {
     return null;
 });
 
-export const terminalLatitude = Terminal.map((terminalDetail, index) => {
-    if (index < 1) {
-        return <p>{terminalDetail.latitude}</p>;
-    }
-    return null;
-});
-
-export const terminalLongitude = Terminal.map((terminalDetail, index) => {
-    if (index < 1) {
-        return <p>{terminalDetail.longitude}</p>;
-    }
-    return null;
-});
-
-export const bankCountry = Bank.map((bankDetail, index) => {
-    if (index < 1) {
-        return <p>{bankDetail.country}</p>;
-    }
-    return null;
-});
-
 export const bankUrl = Bank.map((bankDetail, index) => {
     if (index < 1) {
         return <p>{bankDetail.url}</p>;
