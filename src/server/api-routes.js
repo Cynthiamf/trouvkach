@@ -27,12 +27,11 @@ mongo.connect(
         });
 
         router.get("/terminals", (req, res) => {
-            res.send(
-                terminals.find().toArray((_err2, items) => {
-                    console.log(items);
-                }),
-            );
+            terminals.find().toArray((_err, items) => {
+                res.json(items);
+            });
         });
     },
 );
+
 module.exports = router;
