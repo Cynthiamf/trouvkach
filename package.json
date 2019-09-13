@@ -64,7 +64,8 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-leaflet": "^2.4.0",
-    "saslprep": "^1.0.3"
+    "saslprep": "^1.0.3",
+    "react-fontawesome": "^1.6.1"
   },
   "engines": {
     "node": "12.9.0"
