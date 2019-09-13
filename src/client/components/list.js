@@ -12,14 +12,11 @@ import Bank from "../../../_dev/banks.json";
 const List = () => (
     <div>
         <ul>
-            <li>
-                {Bank.map(Bankdetail => (
+            {Bank.map(Bankdetail => (
+                <li key={Bankdetail.id}>
                     <span>{Bankdetail.name}</span>
-                ))}
-            </li>
-            <li>{"Bank's location (latitude longitude)"}</li>
-            <li>{"Bank's address (Distance)"}</li>
-            <li>{"Bank's name"}</li>
+                </li>
+            ))}
         </ul>
     </div>
 );

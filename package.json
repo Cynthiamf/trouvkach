@@ -51,12 +51,24 @@
     "webpack-cli": "^3.3.8"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.22",
+    "@fortawesome/free-brands-svg-icons": "^5.10.2",
+    "@fortawesome/free-solid-svg-icons": "^5.10.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "express": "^4.17.1",
     "google-maps-react": "^2.0.2",
+    "heroku": "^7.29.0",
+    "heroku-cli": "^7.0.9",
     "leaflet": "^1.5.1",
+    "mongodb": "^3.3.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-leaflet": "^2.4.0"
+    "react-leaflet": "^2.4.0",
+    "saslprep": "^1.0.3",
+    "react-fontawesome": "^1.6.1"
+  },
+  "engines": {
+    "node": "12.9.0"
   },
   "husky": {
     "hooks": {

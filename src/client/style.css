@@ -1,66 +1,72 @@
-body {
-    margin: 0;
-    padding: 0;
-}
-
-.Header {
+* {
+  margin: 0; }
+  * body {
+    background-color: #d7ccc8; }
+  * .Header {
     display: flex;
     justify-content: center;
-    padding-bottom: 5%;
-    border: 1px solid black;
-}
-
-.Header h1 {
-    font-size: 25px;
-}
-
-.Header span {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #a69b97;
+    font-family: 'Orbitron', sans-serif; }
+  * .Header h1 {
+    font-size: 25px; }
+  * .Header span {
     font-size: 15px;
-}
-
-.Content {
+    margin-left: 10px; }
+  * .Content {
     display: flex;
     justify-content: center;
     border: 1px solid black;
-}
-
-.LeftBlock {
+    margin-top: 50px; }
+  * .LeftBlock {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 400px;
     width: 800px;
-    border: 1px solid black;
-}
-
-.RightBlock {
+    border: 1px solid black; }
+  * .RightBlock {
     display: flex;
     flex-direction: column;
     justify-content: stretch;
-    border: 1px solid black;
-}
-
-.Search {
+    border: 1px solid black; }
+  * .Search {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     border: 1px solid black;
-}
-
-.Lists {
+    background-color: #a69b97;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 34px; }
+    * .Search button {
+      padding: 6px;
+      margin-left: 10px;
+      font-family: 'Orbitron', sans-serif; }
+    * .Search .input {
+      padding: 5px;
+      padding-right: 310px;
+      padding-left: 15px;
+      margin-left: 40px;
+      font-family: 'Orbitron', sans-serif; }
+  * .Lists {
     display: flex;
     justify-content: center;
     height: 100%;
     border: 1px solid black;
-}
-
-.Lists ul {
-    list-style: none;
-}
-
-.Footer {
+    padding-top: 20px; }
+    * .Lists li span {
+      display: flex;
+      text-align: left;
+      font-family: 'Quattrocento', serif; }
+  * .Lists ul {
+    list-style: none; }
+  * .Footer {
     display: flex;
     justify-content: center;
     font-size: 12px;
     border: 1px solid black;
-}
+    background-color: #a69b97;
+    font-family: 'Quattrocento', serif; }
+
+/*# sourceMappingURL=style.css.map */

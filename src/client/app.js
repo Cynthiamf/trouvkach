@@ -16,6 +16,12 @@ import Search from "./components/search";
 import List from "./components/list";
 import Footer from "./components/footer";
 
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {fab} from "@fortawesome/free-brands-svg-icons";
+import {faMoneyCheckAlt} from "@fortawesome/free-solid-svg-icons";
+
+library.add(fab, faMoneyCheckAlt);
+
 const App = () => (
     <div>
         <div className={"Header"}>
