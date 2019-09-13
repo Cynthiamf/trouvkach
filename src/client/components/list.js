@@ -12,11 +12,11 @@ import Bank from "../../../_dev/banks.json";
 const List = () => (
     <div>
         <ul>
-            <li>
-                {Bank.map(Bankdetail => (
+            {Bank.map(Bankdetail => (
+                <li key={Bankdetail.id}>
                     <span>{Bankdetail.name}</span>
-                ))}
-            </li>
+                </li>
+            ))}
         </ul>
     </div>
 );
