@@ -11,34 +11,53 @@ import Bank from "../../../_dev/banks.json";
 import Terminal from "../../../_dev/terminals.json";
 
 export const bankName = Bank.map((bankDetail, index) => {
-    if (index < 1) {
+    if (index >= 0) {
         return <p>{bankDetail.name}</p>;
     }
     return null;
 });
 
 export const terminalAddress = Terminal.map((terminalDetail, index) => {
-    if (index < 1) {
+    if (index >= 0) {
         return <p>{terminalDetail.address}</p>;
     }
     return null;
 });
 
 export const bankUrl = Bank.map((bankDetail, index) => {
-    if (index < 1) {
+    if (index >= 0) {
         return <p>{bankDetail.url}</p>;
     }
     return null;
 });
 
-const List = () => (
-    <div>
-        <ul>
-            <li>{bankName}</li>
-            <li>{terminalAddress}</li>
-            <li>{bankUrl}</li>
-        </ul>
-    </div>
-);
+const terminalId = Terminal.map((terminalDetail, index) => {
+    if (index >= 0 && terminalDetail.bank) {
+        return <p>{terminalDetail.bank.$oid}</p>;
+    }
+    return null;
+});
+
+const bankId = Bank.map((bankDetail, index) => {
+    if (index >= 0) {
+        return <p>{bankDetail._id.$oid}</p>;
+    }
+    return null;
+});
+
+const List = () => {
+    if (bankId === terminalId) {
+        return (
+            <div>
+                <ul>
+                    <li>{bankName}</li>
+                    <li>{terminalAddress}</li>
+                    <li>{bankUrl}</li>
+                </ul>
+            </div>
+        );
+    }
+    return "Something went wrong !";
+};
 
 export default List;
