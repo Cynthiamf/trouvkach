@@ -8,6 +8,33 @@
 
 import * as React from "react";
 
-const List = () => <p>{"Something went wrong !"}</p>;
+class List extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            name: [],
+        };
+    }
+    componentDidMount() {
+        fetch("/banks")
+            .then(results => results.json())
+            .then(data => {
+                const name = data.results.map(names => (
+                    <div key={names.results}>
+                        <p>{names.results}</p>
+                    </div>
+                ));
+                this.setState({name});
+                console.log("state", this.state.name);
+            });
+    }
+    render() {
+        return (
+            <div>
+                <p>{this.state.name}</p>
+            </div>
+        );
+    }
+}
 
 export default List;
