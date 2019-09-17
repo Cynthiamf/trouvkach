@@ -32,19 +32,10 @@ class List extends React.Component {
         return (
             <div>
                 <ul>
-                    {this.state.banks.map(banks => (
-                        <li key={banks.name}>
-                            {"Name:"} {banks.name}
-                        </li>
-                    ))}
-                    {this.state.terminals.map(terminals => (
-                        <li key={terminals.address}>
-                            {"Address:"} {terminals.address}
-                        </li>
-                    ))}
-                    {this.state.banks.map(banks => (
-                        <li key={banks.url}>
-                            {"Website:"} {banks.url}
+                    {this.state.terminals.map(terminal => (
+                        <li key={terminal.address}>
+                            {"Address:"} {terminal.address}
+                            {"Bank:"} {terminal.bank}
                         </li>
                     ))}
                 </ul>
