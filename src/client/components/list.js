@@ -31,14 +31,23 @@ class List extends React.Component {
     render() {
         return (
             <div>
-                <ul>
-                    {this.state.terminals.map(terminal => (
-                        <li key={terminal.address}>
-                            {"Address:"} {terminal.address}
-                            {"Bank:"} {terminal.bank}
+                {this.state.terminals.map(terminal => (
+                    <ul key={terminal._id}>
+                        <li>
+                            {"Name:"}{" "}
+                            {terminal.bankDetails[0] &&
+                                terminal.bankDetails[0].name}
                         </li>
-                    ))}
-                </ul>
+                        <li>
+                            {"Address:"} {terminal.address}
+                        </li>
+                        <li>
+                            {"Website:"}{" "}
+                            {terminal.bankDetails[0] &&
+                                terminal.bankDetails[0].url}
+                        </li>
+                    </ul>
+                ))}
             </div>
         );
     }
