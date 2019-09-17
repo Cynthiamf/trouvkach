@@ -42,9 +42,20 @@ mongo.connect(
         });
 
         router.get("/terminals", (req, res) => {
-            terminals.find().toArray((_err, items) => {
-                res.json(items);
-            });
+            terminals
+                .aggregate([
+                    {
+                        $lookup: {
+                            from: "banks",
+                            localField: "bank",
+                            foreignField: "_id",
+                            as: "bankDetails",
+                        },
+                    },
+                ])
+                .toArray((_err, items) => {
+                    res.json(items);
+                });
         });
 
         router.get("/terminals/:long/:lat", (req, res) => {
