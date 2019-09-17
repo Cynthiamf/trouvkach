@@ -8,33 +8,14 @@
 
 import * as React from "react";
 
-class List extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            name: [],
-        };
-    }
-    componentDidMount() {
-        fetch("/banks")
-            .then(results => results.json())
-            .then(data => {
-                const name = data.results.map(names => (
-                    <div key={names.results}>
-                        <p>{names.results}</p>
-                    </div>
-                ));
-                this.setState({name});
-                console.log("state", this.state.name);
-            });
-    }
-    render() {
-        return (
-            <div>
-                <p>{this.state.name}</p>
-            </div>
-        );
-    }
-}
+const List = () => (
+    <div>
+        <ul>
+            <li>{"Bank's name"}</li>
+            <li>{"Terminal's address"}</li>
+            <li>{"Bank's url"}</li>
+        </ul>
+    </div>
+);
 
 export default List;
