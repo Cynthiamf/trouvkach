@@ -56,6 +56,8 @@
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "fs-extra": "^8.1.0",
     "google-maps-react": "^2.0.2",
     "heroku": "^7.29.0",
     "heroku-cli": "^7.0.9",

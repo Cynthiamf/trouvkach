@@ -7,18 +7,45 @@
  */
 
 import * as React from "react";
-import Bank from "../../../_dev/banks.json";
-
-const List = () => (
-    <div>
-        <ul>
-            {Bank.map(Bankdetail => (
-                <li key={Bankdetail.id}>
-                    <span>{Bankdetail.name}</span>
-                </li>
-            ))}
-        </ul>
-    </div>
-);
+class List extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            terminals: [],
+            banks: [],
+        };
+    }
+    componentDidMount() {
+        fetch("/api/terminals")
+            .then(res => res.json())
+            .then(terminals => {
+                this.setState({terminals});
+            });
+        fetch("/api/banks")
+            .then(res => res.json())
+            .then(banks => {
+                this.setState({banks});
+            });
+    }
+    render() {
+        return (
+            <div>
+                {this.state.terminals.map(terminal => (
+                    <ul key={terminal._id}>
+                        <li>
+                            {terminal.bankDetails[0] &&
+                                terminal.bankDetails[0].name}
+                        </li>
+                        <li>{terminal.address}</li>
+                        <li>
+                            {terminal.bankDetails[0] &&
+                                terminal.bankDetails[0].url}
+                        </li>
+                    </ul>
+                ))}
+            </div>
+        );
+    }
+}
 
 export default List;
