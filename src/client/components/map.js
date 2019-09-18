@@ -22,7 +22,7 @@ const Maps = () => (
                 url={"https://{s}.tile.osm.org/{z}/{x}/{y}.png"}
             />
             <Marker position={[50.633277, 5.586462]}>
-                <Popup>{"Pôle image de Liège"}</Popup>
+                <Popup>{"Vous êtes ici !"}</Popup>
             </Marker>
         </Map>
     </div>
