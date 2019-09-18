@@ -2,7 +2,7 @@
  *
  * /src/client/components/list.js - List Component
  *
- * coded by Lionel Franco
+ * coded by Lionel Franco, Cynthia Martiny & Florent Bruyers
  * started at 11/09/2019
  */
 
