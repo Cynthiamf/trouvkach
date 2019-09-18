@@ -1,3 +1,11 @@
+/* becodeorg/trouvkach
+ *
+ * /src/server/api-routes.js
+ *
+ * coded by Lionel Franco, Cynthia Martiny & Florent Bruyers
+ * started at 06/09/2019
+ */
+
 const mongo = require("mongodb").MongoClient;
 //const ObjectID = require("mongodb").ObjectID;
 const router = require("express").Router();

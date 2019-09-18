@@ -2,7 +2,7 @@
  *
  * /src/client/app.js - Client entry point
  *
- * coded by Lionel Franco
+ * coded by Lionel Franco, Cynthia Martiny & Florent Bruyers
  * started at 11/09/2019
  */
 
@@ -15,6 +15,12 @@ import Maps from "./components/map";
 import Search from "./components/search";
 import List from "./components/list";
 import Footer from "./components/footer";
+
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {fab} from "@fortawesome/free-brands-svg-icons";
+import {faMoneyCheckAlt} from "@fortawesome/free-solid-svg-icons";
+
+library.add(fab, faMoneyCheckAlt);
 
 const App = () => (
     <div>
