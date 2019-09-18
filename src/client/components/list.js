@@ -34,15 +34,11 @@ class List extends React.Component {
                 {this.state.terminals.map(terminal => (
                     <ul key={terminal._id}>
                         <li>
-                            {"Name:"}{" "}
                             {terminal.bankDetails[0] &&
                                 terminal.bankDetails[0].name}
                         </li>
+                        <li>{terminal.address}</li>
                         <li>
-                            {"Address:"} {terminal.address}
-                        </li>
-                        <li>
-                            {"Website:"}{" "}
                             {terminal.bankDetails[0] &&
                                 terminal.bankDetails[0].url}
                         </li>
