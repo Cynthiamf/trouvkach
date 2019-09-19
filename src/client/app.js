@@ -2,7 +2,7 @@
  *
  * /src/client/app.js - Client entry point
  *
- * coded by Lionel Franco
+ * coded by Lionel Franco, Cynthia Martiny & Florent Bruyers
  * started at 11/09/2019
  */
 
@@ -36,7 +36,6 @@ const App = () => (
                     <Search />
                 </div>
                 <div className={"Lists"}>
-                    <List />
                     <List />
                 </div>
             </div>

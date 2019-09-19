@@ -55,7 +55,7 @@
     height: 100%;
     border: 1px solid black;
     padding-top: 20px; }
-    * .Lists li span {
+    * .Lists li {
       display: flex;
       text-align: left;
       font-family: 'Quattrocento', serif; }
