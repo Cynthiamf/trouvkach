@@ -6,35 +6,83 @@
  * started at 11/09/2019
  */
 
-import React, {useState} from "react";
+import React from "react";
 import {Map, TileLayer, Marker, Popup} from "react-leaflet";
 
-const Maps = () => {
-    const [coords, setCoords] = useState([0, 0]);
-    const localisation = () => {
+class Maps extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            terminals: [],
+            banks: [],
+            coords: [0, 0],
+        };
+    }
+    componentDidMount() {
+        fetch("/api/terminals")
+            .then(res => res.json())
+            .then(terminals => {
+                this.setState({terminals});
+            });
+        fetch("/api/banks")
+            .then(res => res.json())
+            .then(banks => {
+                this.setState({banks});
+            });
         navigator.geolocation.getCurrentPosition(pos =>
-            setCoords([pos.coords.latitude, pos.coords.longitude]),
+            this.setState({
+                coords: [pos.coords.latitude, pos.coords.longitude],
+            }),
         );
-    };
-    localisation();
-    return (
-        <div>
-            <Map
-                center={coords}
-                zoom={15}
-                style={{height: "400px", width: "800px"}}>
-                <TileLayer
-                    attribution={
-                        '<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    }
-                    url={"https://{s}.tile.osm.org/{z}/{x}/{y}.png"}
-                />
-                <Marker position={coords}>
-                    <Popup>{"Pôle image de Liège"}</Popup>
-                </Marker>
-            </Map>
-        </div>
-    );
-};
+    }
+
+    render() {
+        return (
+            <div>
+                <Map
+                    center={this.state.coords}
+                    zoom={15}
+                    style={{height: "400px", width: "800px"}}>
+                    <TileLayer
+                        attribution={
+                            '<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        }
+                        url={"https://{s}.tile.osm.org/{z}/{x}/{y}.png"}
+                    />
+                    <Marker position={this.state.coords}>
+                        <Popup>{"Vous êtes ici !"}</Popup>
+                    </Marker>
+                    {this.state.terminals.map(terminal => {
+                        if (
+                            (this.state.coords <
+                                [
+                                    terminal.latitude + 0.001,
+                                    terminal.longitude + 0.001,
+                                    // Distance à trouver
+                                ]) &
+                            (this.state.coords >
+                                [
+                                    terminal.latitude - 0.001,
+                                    terminal.longitude - 0.001,
+                                ])
+                        ) {
+                            return (
+                                <Marker
+                                    key={terminal._id}
+                                    position={[
+                                        terminal.latitude,
+                                        terminal.longitude,
+                                    ]}>
+                                    <Popup>{`ATM: ${terminal.address}`}</Popup>
+                                </Marker>
+                            );
+                        }
+                        return null;
+                    })}
+                </Map>
+            </div>
+        );
+    }
+}
 
 export default Maps;
