@@ -1,15 +1,18 @@
-/* becodeorg/trouvkach
- *
- * /src/client/components/list.js - List Component
- *
- * coded by Lionel Franco, Cynthia Martiny & Florent Bruyers
- * started at 11/09/2019
+import * as React from "react";
+
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+
+import IconCard from '../img/iconCard.png';
+/*
+import ArgentaImg from '../img/banks/argenta.png';
+import AxaImg from '../img/banks/axa.png';
  */
 
-import * as React from "react";
 import axios from "axios";
 import "@babel/polyfill";
-
 class List extends React.Component {
     constructor() {
         super();
@@ -29,6 +32,11 @@ class List extends React.Component {
             .then(banks => {
                 this.setState({banks});
             });
+        // fetch("/api/terminals/:long/:lat")
+        //     .then(res => res.json())
+        //     .then(terminals.location.coordinates => {
+        //         this.setState({coordinates});
+        //     });
     }
     async deleteTerminal(id) {
         await axios
@@ -41,17 +49,20 @@ class List extends React.Component {
             <div>
                 {this.state.terminals.map(terminal => (
                     <ul key={terminal._id}>
-                        <li className={"bank_name"} id={"id"}>
-                            {terminal.bankDetails[0] &&
-                                terminal.bankDetails[0].name}
-                        </li>
-                        <li className={"bank_address"} id={"id"}>
-                            {terminal.address}
-                        </li>
-                        <li>
-                            {terminal.bankDetails[0] &&
-                                terminal.bankDetails[0].url}
-                        </li>
+                        <img src={IconCard} alt={'Icône Carte Bancaire'}/>
+                        <Card className='card'>
+                            <CardContent className='cardContent'>
+                                <Typography className='terminalsName'>
+                                    {terminal.bankDetails[0] && terminal.bankDetails[0].name}
+                                </Typography>
+                                <Typography className='terminalsAddress'>
+                                    {terminal.address}
+                                </Typography>
+                            </CardContent>
+                            <CardActions className='cardAction'>
+                                <a href={terminal.bankDetails[0] && terminal.bankDetails[0].url} target="_blank">Visit our website.</a>
+                            </CardActions>
+                        </Card>
                         <button
                             type={"button"}
                             onClick={() => this.deleteTerminal(terminal._id)}>
