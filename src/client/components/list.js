@@ -7,6 +7,8 @@
  */
 
 import * as React from "react";
+import axios from "axios";
+import "@babel/polyfill";
 
 class List extends React.Component {
     constructor() {
@@ -21,36 +23,40 @@ class List extends React.Component {
             .then(res => res.json())
             .then(terminals => {
                 this.setState({terminals});
-                console.log(terminals[0].location.coordinates);
             });
         fetch("/api/banks")
             .then(res => res.json())
             .then(banks => {
                 this.setState({banks});
             });
-        // fetch("/api/terminals/:long/:lat")
-        //     .then(res => res.json())
-        //     .then(terminals.location.coordinates => {
-        //         this.setState({coordinates});
-        //     });
+    }
+    async deleteTerminal(id) {
+        await axios
+            .get(`/api/update/${id}`)
+            .then(res => console.log(res))
+            .catch(err => console.error(err));
     }
     render() {
         return (
             <div>
                 {this.state.terminals.map(terminal => (
                     <ul key={terminal._id}>
-                        <li>
+                        <li className={"bank_name"} id={"id"}>
                             {terminal.bankDetails[0] &&
                                 terminal.bankDetails[0].name}
                         </li>
-                        <li>{terminal.address}</li>
+                        <li className={"bank_address"} id={"id"}>
+                            {terminal.address}
+                        </li>
                         <li>
                             {terminal.bankDetails[0] &&
                                 terminal.bankDetails[0].url}
                         </li>
-                        <li>
-                            {terminal.location && terminal.location.coordinates}
-                        </li>
+                        <button
+                            type={"button"}
+                            onClick={() => this.deleteTerminal(terminal._id)}>
+                            {"N'existe plus"}
+                        </button>
                     </ul>
                 ))}
             </div>

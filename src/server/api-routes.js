@@ -94,6 +94,22 @@ mongo.connect(
                 res.json("ok");
             });
         });
+        router.get("/update/:id", req => {
+            const deleted = new Date();
+            console.log(req.params.id);
+            console.log(deleted.toISOString());
+            terminals.updateOne(
+                {_id: req.params.id},
+                {
+                    $set: {deleted_at: deleted.toISOString()},
+                },
+                {},
+                (_err, res) => {
+                    console.error(err);
+                    console.log(res);
+                },
+            );
+        });
     },
 );
 
