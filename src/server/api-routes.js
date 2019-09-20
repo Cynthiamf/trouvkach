@@ -9,19 +9,22 @@
 const mongo = require("mongodb").MongoClient;
 //const ObjectID = require("mongodb").ObjectID;
 const router = require("express").Router();
-const url = "mongodb://dev:dev@mongo:27017/admin";
+//const url = "mongodb://dev:dev@mongo:27017/admin";
+const url =
+    "mongodb+srv://dev:dev@cluster0-hu2iq.mongodb.net/test?retryWrites=true&w=majority";
 
 async function installationMongo(term) {
-    const items = await term.find({}).toArray();
-    for (const [i, element] of items.entries()) {
-        element.location = {
-            type: "Point",
-            coordinates: [element.longitude, element.latitude],
-        };
-        console.log(element);
-        console.log(i);
-        term.updateOne({_id: element._id}, {$set: element});
-    }
+    // const items = await term.find({}).toArray();
+    // for (const [i, element] of items.entries()) {
+    //     element.location = {
+    //         type: "Point",
+    //         coordinates: [element.longitude, element.latitude],
+    //     };
+    //     console.log(element);
+    //     console.log(i);
+    //     term.updateOne({_id: element._id}, {$set: element});
+    // }
+
     await term.createIndex({location: "2dsphere"});
 }
 
