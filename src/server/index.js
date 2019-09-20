@@ -26,7 +26,7 @@ app.get("/hello", (req, res) => {
     res.send("Hello, World!");
 });
 
-app.listen(APP_PORT, () =>
+app.listen(process.env.PORT || APP_PORT, () =>
     console.log(`🚀 Server is listening on port ${APP_PORT}.`),
 );
 
