@@ -52,33 +52,13 @@ class Maps extends React.Component {
                     <Marker position={this.state.coords}>
                         <Popup>{"Vous êtes ici !"}</Popup>
                     </Marker>
-                    {this.state.terminals.map(terminal => {
-                        if (
-                            (this.state.coords <
-                                [
-                                    terminal.latitude + 0.001,
-                                    terminal.longitude + 0.001,
-                                    // Distance à trouver
-                                ]) &
-                            (this.state.coords >
-                                [
-                                    terminal.latitude - 0.001,
-                                    terminal.longitude - 0.001,
-                                ])
-                        ) {
-                            return (
-                                <Marker
-                                    key={terminal._id}
-                                    position={[
-                                        terminal.latitude,
-                                        terminal.longitude,
-                                    ]}>
-                                    <Popup>{`ATM: ${terminal.address}`}</Popup>
-                                </Marker>
-                            );
-                        }
-                        return null;
-                    })}
+                    {this.state.terminals.map(terminal => (
+                        <Marker
+                            key={terminal._id}
+                            position={[terminal.latitude, terminal.longitude]}>
+                            <Popup>{`ATM: ${terminal.address}`}</Popup>
+                        </Marker>
+                    ))}
                 </Map>
             </div>
         );
