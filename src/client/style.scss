@@ -69,9 +69,14 @@
             padding-right: 310px;
             padding-left: 15px;
             margin-left: 40px;
-            font-family: 'Orbitron',
-                sans-serif;
+            font-family: 'Orbitron', sans-serif;
         }
+    }
+
+    ul img {
+        position: relative;
+        top: 55px;
+        left: -35px;
     }
 
     .Lists {
@@ -87,9 +92,40 @@
             font-family: 'Quattrocento', serif;
         }
     }
-
     .Lists ul {
         list-style: none;
+        border : 1px solid #a69b97;
+        border-radius : 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+
+    .card {
+        margin: 0;
+        padding: 0;
+    }
+    .cardContent {
+        background-color: #d7ccc8;
+        margin: 0;
+        padding: 0;
+
+        .terminalsName {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding-bottom: 5px;
+        }
+
+        .terminalsAddress {
+            font-style: italic;
+        }
+    }
+
+    .cardAction{
+        background-color: #a69b97;
+        margin: 0;
+        padding: 0;
     }
 
     .Footer {
