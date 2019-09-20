@@ -15,7 +15,9 @@ const {APP_PORT} = process.env;
 const app = express();
 
 const mongo = require("mongodb").MongoClient;
-const url = "mongodb://dev:dev@mongo:27017/admin";
+//const url = "mongodb://dev:dev@mongo:27017/admin";
+const url =
+    "mongodb+srv://dev:dev@cluster0-hu2iq.mongodb.net/test?retryWrites=true&w=majority";
 
 app.use(express.static(path.resolve(__dirname, "../../bin/client")));
 

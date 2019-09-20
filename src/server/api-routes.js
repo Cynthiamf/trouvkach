@@ -35,6 +35,9 @@ mongo.connect(
         useUnifiedTopology: true,
     },
     (err, client) => {
+        if (err) {
+            throw err;
+        }
         const db = client.db("trouvkash");
         const terminals = db.collection("terminals");
         const banks = db.collection("banks");
